@@ -1,0 +1,9 @@
+General requirements:
+1.Python of verison 3.7.3 or higher
+2.Microsoft Visual C++ Redistributable 14.27.9016
+Packages:
+1.Tensorflow of verison 2.3 or higher 
+2.Keras of verison 2.4 or higher
+3.Skimage of version 0.16 or higher
+4.Tqdm of version 4.41 or higher
+5.Numpy of version 1.18 or higher
