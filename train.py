@@ -18,7 +18,7 @@ os.makedirs('stage1_train', exist_ok=True)
 with zipfile.ZipFile(dirname(realpath(__file__)) + '\\stage1_train.zip', 'r') as zip_ref:
     zip_ref.extractall('stage1_train')
 
-TRAIN_PATH = 'stage1_train/'
+TRAIN_PATH = 'stage1_train\\'
 
 def extract_data(train_path, img_width=128, img_height=128, channels=3):
     train_ids = os.listdir(train_path)
@@ -27,12 +27,12 @@ def extract_data(train_path, img_width=128, img_height=128, channels=3):
 
     for n, id_ in tqdm(enumerate(train_ids), total=len(train_ids)):
         path = TRAIN_PATH + id_
-        img = imread(path + '/images/' + id_ + '.png')[:,:,:channels]
+        img = imread(path + '\\images\\' + id_ + '.png')[:,:,:channels]
         img = resize(img, (img_height, img_width), mode='constant', preserve_range=True)
         X_train[n] = img
         mask = np.zeros((img_height, img_width, 1), dtype=np.bool)
-        for mask_file in next(os.walk(path + '/masks/'))[2]:
-            mask_ = imread(path + '/masks/' + mask_file)
+        for mask_file in next(os.walk(path + '\\masks\\'))[2]:
+            mask_ = imread(path + '\\masks\\' + mask_file)
             mask_ = np.expand_dims(resize(mask_, (img_height, img_width), mode='constant', 
                                         preserve_range=True), axis=-1)
             mask = np.maximum(mask, mask_)
